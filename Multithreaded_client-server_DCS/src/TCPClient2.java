@@ -7,11 +7,11 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class TCPClient {
+public class TCPClient2 {
     public static void main(String[] args) throws UnknownHostException 
     {
         InetAddress address = InetAddress.getByName("localhost");
-        try (Socket socket = new Socket(address, TCPMultithreading.PORT)) 
+        try (Socket socket = new Socket(address, TCPMultithreading.PORT))
         {
             System.out.println("Client with the socket " + socket.getLocalPort() + " has started!");
             // Output stream
@@ -36,11 +36,9 @@ public class TCPClient {
 
             while (!(line = keyboardLine.nextLine()).equalsIgnoreCase("END")) {
                 out.println(line); //TO THE SERVER!
-                //System.out.println("Produced content: "  + in.readLine()); //THIS CAUSES DEADLOCK, Client cannot do anything, until server responds
             } 
 
             keyboardLine.close();
-            //socket.close();
         } 
         catch (IOException e) { 
             e.printStackTrace(); 
